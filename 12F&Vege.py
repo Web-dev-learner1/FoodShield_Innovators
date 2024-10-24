@@ -9,30 +9,6 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing import image
 import zipfile
 
-# -------------------------------------
-# 1. Download and Unzip Kaggle Dataset
-# -------------------------------------
-
-# Replace with the path to your downloaded Kaggle dataset zip file
-#zip_path = 'path_to_downloaded_kaggle_dataset.zip'
-#extract_to_path = 'dataset/'
-
-#with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-#  zip_ref.extractall(extract_to_path)
-
-# After extracting, your dataset folder should be organized like this:
-# dataset/
-#     train/
-#         Fresh/
-#             img1.jpg
-#         Spoiled/
-#             img2.jpg
-#     validation/
-#         Fresh/
-#             img3.jpg
-#         Spoiled/
-#             img4.jpg
-
 # --------------------------
 # 2. Image Processing with OpenCV
 # --------------------------
@@ -150,6 +126,32 @@ def full_spoilage_detection_system(img_path):
         else:
             print("Prediction: The vegetable/fruit is fresh.")
 
-# Test the system with an image
-img_path = 'img_path.2.jpg'
-full_spoilage_detection_system(img_path)
+# --------------------------
+# 6. Main Program with Loop
+# --------------------------
+
+def run_spoilage_detection_loop():
+    print("Welcome to the Spoilage Detection System!")
+    print("Type 'exit' to quit.")
+
+    while True:
+        img_path = input("Enter the path to the image (or type 'exit' to quit): ")
+
+        if img_path.lower() == 'exit':
+            print("Exiting the system. Goodbye!")
+            break
+        
+        if not os.path.exists(img_path):
+            print("The specified image path does not exist. Please try again.")
+            continue
+        
+        try:
+            full_spoilage_detection_system(img_path)
+        except Exception as e:
+            print(f"An error occurred during spoilage detection: {e}")
+
+# --------------------------
+# Run the Spoilage Detection Loop
+# --------------------------
+
+run_spoilage_detection_loop()
