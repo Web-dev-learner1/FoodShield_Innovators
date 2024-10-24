@@ -1,4 +1,4 @@
-# Spoilage Detection System
+# Detection for anamolies in fruits and vegetables
 
 ## Overview
 The Spoilage Detection System is an AI-powered application designed to automate the detection of food spoilage, ensuring compliance with food safety regulations. By utilizing computer vision and machine learning techniques, this system helps food companies enhance their quality control processes, minimize waste, and improve operational efficiency.
