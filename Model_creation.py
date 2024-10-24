@@ -8,6 +8,7 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.preprocessing import image
 import zipfile
+from connection import work
 
 # --------------------------
 # 2. Image Processing with OpenCV
@@ -123,8 +124,10 @@ def full_spoilage_detection_system(img_path):
         result = predict_spoilage_with_ml(img_path)
         if result:
             print("Prediction: The vegetable/fruit is spoiled.")
+            work('0')
         else:
             print("Prediction: The vegetable/fruit is fresh.")
+            work('1')
 
 # --------------------------
 # 6. Main Program with Loop
